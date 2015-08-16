@@ -469,11 +469,22 @@ function s:SetUpForNewFiletype(filetype, forceReset)
 endfunction
 
 function s:CreateDelimMapFromCms()
-    return {
-        \ 'left': substitute(&commentstring, '\([^ \t]*\)\s*%s.*', '\1', ''),
-        \ 'right': substitute(&commentstring, '.*%s\s*\(.*\)', '\1', 'g'),
-        \ 'leftAlt': '',
-        \ 'rightAlt': '' }
+    " If the filetype is known, get the comment characters from the commentstring.
+    " If the filetype is unknown, return '#' as main and parse vim's default
+    "   commentstring /*...*/ as the alt.
+    if &filetype !=? ''
+        return {
+            \ 'left': substitute(&commentstring, '\([^ \t]*\)\s*%s.*', '\1', ''),
+            \ 'right': substitute(&commentstring, '.*%s\s*\(.*\)', '\1', 'g'),
+            \ 'leftAlt': '',
+            \ 'rightAlt': '' }
+    else
+        return {
+            \ 'left': '#',
+            \ 'right': '',
+            \ 'leftAlt': substitute(&commentstring, '\([^ \t]*\)\s*%s.*', '\1', ''),
+            \ 'rightAlt': substitute(&commentstring, '.*%s\s*\(.*\)', '\1', 'g') }
+    endif
 endfunction
 
 " Function: s:SwitchToAlternativeDelimiters(printMsgs) function {{{2
