@@ -1,31 +1,25 @@
 # About this fork
 
-This fork stems from a disagreement I have with NERD Commenter's default
-behaviour: even blocks get commented per-line of with left-aligned
-comment chars, by default.
+This fork contains branches with features that I prefer differently
+from stock NERD Commenter.
 
-Take the following piece of code we want to comment, peace be upon Dorothy
-Parker:
+* `better-default-for-unknown-types` ensures that if vim doesn't know
+  the file type, the comment style defaults to `# ...` primary,
+  `/* ... */` secondary.
 
-    for place in ['book shop', 'bar-room', 'haberdasher’s']:
-        pass
+* `default-to-left-aligned-comments` makes `<C-Space>` produce comments
+  in this style:
 
-If I visually select both lines and hit `<localleader>c<Space>`, NERD
-commenter defaults to commenting each line at its own level.
+      # for place in ['book shop', 'bar-room', 'haberdasher’s']:
+      #     pass
 
-    # for place in ['book shop', 'bar-room', 'haberdasher’s']:
-        # pass
+  Instead of this style:
 
-I always prefer lined-up comment marks:
+      # for place in ['book shop', 'bar-room', 'haberdasher’s']:
+          # pass
 
-    # for place in ['book shop', 'bar-room', 'haberdasher’s']:
-    #     pass
-
-The branch `default-to-left-aligned-comments` in this repo alters the
-behaviour of `<localleader>c<Space>` to the second variant. It does this
-by hardwiring the dispatcher so that 'toggle' commands, too, call the
-left-aligned style. It's not pretty, but it does what I want. If it does
-what you want, too, feel free to use this repo.
+* branch `sietse` is for my own use, a merge of the master branch and
+  those two feature branches.
 
 
 # Installation  
