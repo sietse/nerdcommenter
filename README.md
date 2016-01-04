@@ -18,8 +18,11 @@ from stock NERD Commenter.
       # for place in ['book shop', 'bar-room', 'haberdasher’s']:
           # pass
 
+* `better-python-default` makes Python always use `# asdf`-style comments instead of
+  `#  adsf`-style.
+
 * branch `sietse` is for my own use, a merge of the master branch and
-  those two feature branches.
+  the feature branches.
 
 
 # Installation  
