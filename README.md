@@ -1,7 +1,17 @@
 # About this fork
 
 This fork contains branches with features that I prefer differently
-from stock NERD Commenter.
+from stock NERD Commenter. At the end of May 2016, the wonderful
+[@alerque](https://github.com/alerque) did a ton of maintenance work on
+nerdcommenter, and I could go back to using the main
+[scrooloose/nerdcommenter](https://github.com/scrooloos/nerdcommenter) plus
+some choice overrides in my `.vimrc`.
+
+I keep this repo around because I like the neatness of several feature
+branches, a `README` in `master` mentioning them all, and an integration branch
+for myself that merges them all in.
+
+These are the branches I made at the time:
 
 * `better-default-for-unknown-types` ensures that if vim doesn't know
   the file type, the comment style defaults to `# ...` primary,
